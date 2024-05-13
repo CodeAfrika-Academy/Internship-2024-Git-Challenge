@@ -10,15 +10,22 @@ courses = [
 
 # Function to create a new course :Brigit
 def create_course(course_code, course_name, instructor):
-    pass
+    courses.append([course_code, course_name, instructor])
 
 # Function to display all courses :Brigit
-def display_courses():
-    pass
+def display_courses(coursesList):
+    print("Available Courses: ")
+    for course in coursesList:
+        course_code, course_name, instructor = course[0], course[1], course[2]
+        print(f"Course Code: {course_code}, Course Name:  {course_name}, Instructor: {instructor}")
 
 # Function to search for courses :Brigit
 def search_courses(instructor):
-    pass
+    matching_courses = []
+    for course in courses:
+        if course[2] == instructor:
+            matching_courses.append(course)
+    return matching_courses
 
 # Function to enroll a student in a course :Roy
 def enroll_student(course_code, student_name):
@@ -47,12 +54,21 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            create_course() #Pass required params
+            course_code = input("Enter the course code: ")
+            course_name = input("Enter the course name: ")
+            instructor = input("Enter the name of the instructor: ")
+            create_course(course_code, course_name, instructor) #Pass required params
         elif choice == "2":
-            display_courses()  #Pass required params
+            display_courses(courses)  #Pass required params
         elif choice == "3":
-            keyword = input("Enter keyword to search: ")
-            search_courses("instructor")  #Pass required params
+            instructor_name = input("Enter the name of the instructor to search for: ")
+            matching_courses = search_courses(instructor_name)
+            if matching_courses:
+               print(f"Courses offered by {instructor_name}:")
+               for course in matching_courses:
+                   print(f"Course Code: {course[0]}, Course Name: {course[1]}")
+            else:
+                print(f"No courses found for instructor {instructor_name}.")
         elif choice == "4":
             course_code = input("Enter course code: ")
             student_name = input("Enter student name: ")
