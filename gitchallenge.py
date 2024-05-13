@@ -14,7 +14,7 @@ def create_course(course_code, course_name, instructor):
 
 # Function to display all courses :Brigit
 def display_courses():
-    print("All Courses")
+    pass
 
 # Function to search for courses :Brigit
 def search_courses(instructor):
@@ -51,8 +51,8 @@ def main():
         elif choice == "2":
             display_courses()  #Pass required params
         elif choice == "3":
-            instructor = input("Enter keyword to search: ")
-            search_courses(instructor)  #Pass required params
+            keyword = input("Enter keyword to search: ")
+            search_courses("instructor")  #Pass required params
         elif choice == "4":
             course_code = input("Enter course code: ")
             student_name = input("Enter student name: ")
