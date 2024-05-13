@@ -49,7 +49,7 @@ def display_course_info(course_code):
             
     if not requested_course:
         print(f"There is no course with the code {course_code}")
-4
+
 # Function to drop a student from a course :Roy
 def drop_student(course_code, student_name):
     course_code_found = False
