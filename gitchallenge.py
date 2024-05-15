@@ -30,11 +30,6 @@ def enroll_student(course_code, student_name):
             print(f"You have successfully enrolled {student_name} in the course {course[1]}.")
     if not found:
         print(f"There is no course with the code {course_code}")
-        
-    
-
-
-
 
 # Function to display detailed information about a course :Roy
 def display_course_info(course_code):
@@ -63,8 +58,6 @@ def drop_student(course_code, student_name):
                 print(f"{student_name} is not enrolled in the course {course[1]}.")
     if not course_code_found:
         print(f"There is no course with the code {course_code}")
-
-
 
 def main():
     while True:
