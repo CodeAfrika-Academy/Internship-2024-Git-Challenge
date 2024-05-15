@@ -14,7 +14,7 @@ def create_course(course_code, course_name, instructor):
 
 # Function to display all courses :Brigit
 def display_courses():
-    pass
+   pass
 
 # Function to search for courses :Brigit
 def search_courses(instructor):
@@ -22,15 +22,48 @@ def search_courses(instructor):
 
 # Function to enroll a student in a course :Roy
 def enroll_student(course_code, student_name):
-    pass
+    found = False
+    for course in courses:
+        if course[0] == course_code:
+            found = True
+            course[3].append(student_name)
+            print(f"You have successfully enrolled {student_name} in the course {course[1]}.")
+    if not found:
+        print(f"There is no course with the code {course_code}")
+        
+    
+
+
+
 
 # Function to display detailed information about a course :Roy
 def display_course_info(course_code):
-    pass
+    requested_course = False
+    for course in courses:
+        if course[0] == course_code:
+            requested_course = True
+            print("Course code:", course[0])
+            print("Course title:", course[1])
+            print("Instructor:", course[2])
+            print("Students enrolled:", course[3])
+            
+    if not requested_course:
+        print(f"There is no course with the code {course_code}")
 
 # Function to drop a student from a course :Roy
 def drop_student(course_code, student_name):
-    pass
+    course_code_found = False
+    for course in courses:
+        if course[0] == course_code:
+            course_code_found = True
+            if student_name in course[3]:
+                course[3].remove(student_name)
+                print(f"{student_name} has been dropped from the course {course[1]}.")
+            else:
+                print(f"{student_name} is not enrolled in the course {course[1]}.")
+    if not course_code_found:
+        print(f"There is no course with the code {course_code}")
+
 
 
 def main():
